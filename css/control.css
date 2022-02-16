@@ -1,0 +1,130 @@
+main {
+  justify-content: space-between;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.2rem;
+}
+
+tr {
+  transition: 0.3s ease-out;
+}
+
+tr:hover {
+  background-color: rgba(139, 151, 143, 0.1);
+}
+
+td,
+th {
+  padding: 8px;
+  font-weight: 400;
+}
+
+th {
+  font-family: DINNextW05;
+  font-size: 1.4rem;
+  color: var(--black);
+  background-color: var(--light-grey);
+}
+
+td {
+  font-family: DINNextW1G;
+  color: var(--black);
+  text-align: center;
+}
+
+td:nth-child(1) {
+  padding: 0;
+  text-align: left;
+  font-family: DINNextW05;
+  display: flex;
+  align-items: center;
+}
+th:nth-child(2) {
+  background-color: rgba(255, 70, 85, 0.4);
+}
+
+td:nth-child(2) {
+  background-color: rgba(255, 70, 85, 0.2);
+}
+
+td img {
+  width: 52px;
+}
+
+.edit,
+.delete {
+  cursor: pointer;
+}
+
+.confirmation {
+  z-index: 8;
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(15, 25, 35, 0.9);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+
+.confirmation.active {
+  display: flex;
+}
+
+.confirmation img {
+  height: 20vh;
+}
+
+.confirmation h6 {
+  text-align: center;
+  color: var(--white);
+  font-size: 2rem;
+}
+
+.quit {
+  margin: 0 1rem;
+  position: fixed;
+  background-color: var(--red);
+  width: 58px;
+  height: 58px;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.quit div {
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.quit div::before {
+  left: 50%;
+  position: absolute;
+  background-color: white;
+  content: "";
+  width: 6px;
+  height: 30px;
+  transform: translateX(-50%);
+}
+
+.quit div::after {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  background-color: white;
+  content: "";
+  width: 30px;
+  height: 6px;
+  transform: translate(-50%, -50%);
+}

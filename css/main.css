@@ -1,0 +1,322 @@
+:root {
+  --white: rgb(241, 239, 236);
+  --grey: rgb(139, 151, 143);
+  --light-grey: rgb(212, 214, 211);
+  --transparent-grey: rgba(139, 151, 143, 0.2);
+  --black: rgb(15, 25, 35);
+  --red: rgb(255, 70, 85);
+  --green: rgb(8, 213, 160);
+}
+
+@font-face {
+  font-family: Tungsten-Medium;
+  src: url(../assets/fonts/Tungsten-Medium.woff2) format("woff2"),
+    url(../assets/fonts/Tungsten-Medium.woff) format("woff");
+}
+@font-face {
+  font-family: Tungsten-SemiBold;
+  src: url(../assets/fonts/Tungsten-SemiBold.woff2) format("woff2"),
+    url(../assets/fonts/Tungsten-SemiBold.woff) format("woff");
+}
+@font-face {
+  font-family: Tungsten-Bold;
+  src: url(../assets/fonts/Tungsten-Bold.woff2) format("woff2"),
+    url(../assets/fonts/Tungsten-Bold.woff) format("woff");
+}
+@font-face {
+  font-family: DINNextW1G;
+  src: url(../assets/fonts/DINNextW1G.woff2) format("woff2"),
+    url(../assets/fonts/DINNextW1G.woff) format("woff");
+}
+@font-face {
+  font-family: DINNextW05;
+  src: url(../assets/fonts/DINNextW05.woff2) format("woff2"),
+    url(../assets/fonts/DINNextW05.woff) format("woff");
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  width: 100vw;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  background-color: var(--white);
+  width: 100vw;
+  overflow-x: hidden;
+  user-select: none;
+}
+
+header {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .menu {
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+}
+
+header .menu a {
+  display: flex;
+  gap: 2rem;
+  padding: 0;
+  font-family: DINNextW05;
+  align-items: center;
+  opacity: 0.8;
+  transition: 0.3s ease-out;
+}
+
+header .menu a:hover {
+  opacity: 1;
+}
+
+header .menu span {
+  color: var(--black);
+}
+
+header .menu svg {
+  fill: var(--black);
+  width: 60px;
+  height: 60px;
+}
+
+header .menu .create {
+  margin: 0 1rem;
+  position: relative;
+  background-color: var(--red);
+  width: 58px;
+  height: 58px;
+}
+
+header .menu .create div {
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  transform: translate(-50%, -50%);
+}
+
+header .menu .create div::before {
+  left: 50%;
+  position: absolute;
+  background-color: white;
+  content: "";
+  width: 6px;
+  height: 30px;
+  transform: translateX(-50%);
+}
+
+header .menu .create div::after {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  background-color: white;
+  content: "";
+  width: 30px;
+  height: 6px;
+  transform: translate(-50%, -50%);
+}
+
+footer {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer a {
+  font-family: DINNextW05;
+  color: var(--red);
+}
+
+main {
+  min-height: calc(100vh - 180px);
+  display: flex;
+  flex-direction: column;
+  padding: 1vh 10vw;
+  width: 100%;
+  max-width: 2000px;
+}
+
+.background {
+  top: -20vh;
+  right: -10vh;
+  z-index: -1;
+  position: absolute;
+  width: 80vh;
+  height: 80vh;
+}
+
+.background svg {
+  height: 100%;
+  width: 100%;
+  fill: var(--light-grey);
+  opacity: 0.2;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dt,
+p {
+  font-weight: 400;
+  margin: 0;
+}
+
+h1 {
+  font-family: Tungsten-Bold;
+  font-size: 8rem;
+  color: var(--red);
+}
+h2 {
+  font-family: Tungsten-Bold;
+  font-size: 7.5rem;
+  color: var(--red);
+}
+
+h3 {
+  font-family: Tungsten-Bold;
+  font-size: 3.75rem;
+  color: var(--black);
+}
+
+h4 {
+  font-family: Tungsten-SemiBold;
+  font-size: 3rem;
+  color: var(--red);
+}
+
+h5 {
+  font-family: Tungsten-SemiBold;
+  font-size: 2rem;
+  color: var(--black);
+}
+
+h6 {
+  font-family: DINNextW05;
+  font-size: 1rem;
+  color: var(--black);
+  margin: 1rem 0;
+}
+
+dt {
+  font-family: DINNextW05;
+  font-size: 1rem;
+  color: var(--black);
+}
+
+p {
+  font-family: DINNextW1G;
+  font-size: 1rem;
+  color: var(--black);
+}
+
+a {
+  text-decoration: none;
+}
+
+.bouton {
+  position: relative;
+  padding: 8px 8px;
+  margin: 4vh 0;
+  align-self: center;
+  text-align: center;
+  cursor: pointer;
+}
+.bouton::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: calc(50% - 0.4rem);
+  width: 100%;
+  left: 0;
+  top: 0;
+  border: 1px solid var(--black);
+  border-bottom: 0;
+}
+
+.bouton::after {
+  content: "";
+  position: absolute;
+  height: calc(50% - 0.4rem);
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  border: 1px solid var(--black);
+  border-top: 0;
+}
+
+.bouton div {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  padding: 16px 32px;
+}
+
+.bouton span.box {
+  content: "";
+  position: absolute;
+  background-color: var(--black);
+  transform: translate(-100%) skew(-10deg);
+  height: 100%;
+  width: 120%;
+  left: -10%;
+  top: 0;
+  z-index: 1;
+  transition: transform 0.3s ease-out;
+}
+.bouton div::before {
+  content: "";
+  position: absolute;
+  background-color: var(--red);
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.bouton span.text {
+  position: relative;
+  width: 100%;
+  font-family: DINNextW05;
+  font-size: 2rem;
+  background-color: transparent;
+  color: var(--white);
+  z-index: 1;
+}
+
+.bouton.active:hover span.box {
+  transform: translate(0%) skew(-10deg);
+}
+
+@media screen and (max-width: 800px) {
+  header span {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  header .logo a img {
+    display: none;
+  }
+}

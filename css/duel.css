@@ -1,0 +1,318 @@
+.agents {
+  position: relative;
+  height: 100%;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.attaquant,
+.defenseur {
+  transition: 0.3s ease-out;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  height: 100%;
+}
+
+.display {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.defenseur .display {
+  align-items: flex-end;
+}
+
+dl {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+}
+
+.defenseur dl {
+  align-items: flex-end;
+}
+
+dt {
+  margin: 0;
+}
+
+div.duel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  transform: translate(-50%, -50%);
+}
+
+.attaquant {
+  text-align: left;
+  align-items: flex-start;
+}
+.defenseur {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.agent {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+}
+
+.defenseur .agent {
+  direction: rtl;
+}
+
+.agent label {
+  position: relative;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  margin: 0.2rem;
+  overflow: hidden;
+}
+
+.agent label:has(input:disabled) {
+  cursor: default;
+}
+
+.agent input {
+  display: none;
+}
+
+.agent label span {
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: color 0.3s ease;
+  background-color: var(--light-grey);
+}
+
+.agent label span::before {
+  z-index: 2;
+  content: "";
+  display: block;
+  position: absolute;
+  height: 33%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  border: 1px solid var(--grey);
+  border-bottom: 0 !important;
+  transition: height 0.3s ease-out;
+}
+
+.agent label span::after {
+  z-index: 2;
+  content: "";
+  position: absolute;
+  height: 33%;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  border: 1px solid var(--grey);
+  border-top: 0 !important;
+  transition: height 0.3s ease-out;
+}
+
+.agent label input:checked ~ span::before,
+.agent label input:checked ~ span::after {
+  border: 2px solid var(--red);
+  height: 50%;
+}
+.agent label input:checked ~ label {
+  transform: scale(1.1);
+  background-color: rgba(255, 70, 85, 0.1);
+}
+
+.agent label input:disabled ~ span {
+  cursor: default;
+}
+.agent label input:disabled ~ img {
+  cursor: default;
+  opacity: 0.6;
+}
+
+.agent img {
+  width: 100%;
+  height: 100%;
+  transform: scale(1.05);
+  transition: 0.3s ease;
+}
+
+.stats {
+  background-color: rgba(255, 125, 136, 0.6);
+  padding: 0.5em;
+  display: flex;
+  gap: 3rem;
+  width: fit-content;
+}
+
+.defenseur dt {
+  float: right;
+}
+
+.biographie {
+  background-color: rgba(212, 214, 211, 0.6);
+  padding: 10px;
+}
+
+.pv {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-self: flex-end;
+}
+
+.defenseur .pv {
+  justify-content: flex-end;
+}
+
+.pv h4 {
+  display: inline-block;
+  color: var(--green);
+}
+
+.pv svg {
+  fill: var(--green);
+}
+
+.artwork {
+  z-index: -1;
+  position: absolute;
+  opacity: 0.9;
+  height: 66vh;
+  right: -10%;
+}
+
+.defenseur .artwork {
+  left: -10%;
+}
+
+.bouton {
+  transition: 0.3s ease-out;
+}
+
+.bouton:hover {
+  transform: scale(1.1);
+}
+
+.bouton .duel {
+  height: 100%;
+  position: relative;
+  width: 100%;
+  font-family: DINNextW05;
+  font-size: 2rem;
+  background-color: transparent;
+  fill: var(--white);
+  z-index: 1;
+}
+
+.bouton div {
+  padding: 18px 28px;
+}
+
+.bouton .svg svg {
+  height: 100px;
+}
+
+.dead {
+  opacity: 0;
+  pointer-events: none;
+  z-index: 4;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.defeat .dead {
+  opacity: 1;
+}
+
+.dead svg {
+  fill: var(--red);
+}
+
+.defeat .display {
+  pointer-events: none;
+  opacity: 0.1;
+}
+@media screen and (max-width: 1600px) {
+  .agent {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+@media screen and (max-width: 1080px) {
+  .agent {
+    grid-template-columns: repeat(9, 1fr);
+  }
+  .agents {
+    flex-direction: column;
+    gap: 33vh;
+  }
+
+  .attaquant,
+  .defenseur {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .agent {
+    grid-template-columns: repeat(9, 1fr);
+    gap: 0.2rem;
+  }
+  main .agent label {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .agent {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .artwork {
+    opacity: 0.2;
+  }
+}
+@media screen and (max-width: 480px) {
+  h2 {
+    font-size: 4.2rem;
+  }
+  h3 {
+    font-size: 3rem;
+  }
+  h5 {
+    font-size: 1.6rem;
+  }
+  main .agent label {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  h5 {
+    font-size: 1.2rem;
+  }
+  .agent {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
