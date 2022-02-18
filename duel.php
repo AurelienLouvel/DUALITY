@@ -56,7 +56,6 @@
         </div>
     </main>
     <?php require 'footer.php'?>
-    <script src="anime.min.js"></script>
     <script>
     let reload = false
     let wait = false
